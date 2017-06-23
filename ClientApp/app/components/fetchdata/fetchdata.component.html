@@ -1,24 +1,22 @@
-<h1>Weather forecast</h1>
+<h1>POSK</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>Últimas ventas</p>
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
+<p *ngIf="!boletas"><em>Loading...</em></p>
 
-<table class='table' *ngIf="forecasts">
+<table class='table' *ngIf="boletas">
     <thead>
         <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
+            <th>ID</th>
+            <th>Monto</th>
+            <th>Fecha</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.dateFormatted }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
+        <tr *ngFor="let boleta of boletas">
+            <td>{{ boleta.id }}</td>
+            <td>{{ boleta.total }}</td>
+            <td>{{ boleta.fecha }}</td>
         </tr>
     </tbody>
 </table>

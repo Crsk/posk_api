@@ -3,12 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using posk_api.Model;
 
 namespace WebApplicationBasic.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
+    [Route("api")]
     public class SampleDataController : Controller
     {
+        PoskContext ctx = new PoskContext();
+
+        [HttpGet("[action]")]
+        public List<Boleta> Ventas()
+        {
+            List<Boleta> listaBoletas = ctx.Boletas.ToList();
+            listaBoletas.Reverse();
+            return listaBoletas;
+        }
+        
         private static string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
